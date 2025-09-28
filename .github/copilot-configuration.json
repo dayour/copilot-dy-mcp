@@ -1,0 +1,64 @@
+{
+  "project": {
+    "name": "Microsoft Copilot Studio MCP Server",
+    "description": "A Model Context Protocol server providing business tools for Microsoft Copilot Studio integration",
+    "type": "mcp-server",
+    "language": "typescript",
+    "framework": "express",
+    "deployment": "azure-container-apps"
+  },
+  "structure": {
+    "src/": "TypeScript source code",
+    "src/server.ts": "Main MCP server implementation with tool definitions",
+    "infra/": "Azure deployment infrastructure (Bicep templates)", 
+    "assets/": "Documentation images and resources",
+    "Dockerfile": "Container configuration for Azure deployment"
+  },
+  "tools": [
+    {
+      "name": "execute-powershell-command",
+      "description": "Execute PowerShell commands for system administration",
+      "parameters": ["command", "timeoutMs"]
+    },
+    {
+      "name": "make-api-request", 
+      "description": "Make HTTP requests to REST APIs",
+      "parameters": ["url", "method", "headers", "body", "timeoutMs"]
+    },
+    {
+      "name": "get-azure-resource-info",
+      "description": "Get information about Azure resources",
+      "parameters": ["resourceType", "resourceName", "subscriptionId"]
+    },
+    {
+      "name": "get-system-info",
+      "description": "Get system performance and monitoring information",
+      "parameters": ["infoType"]
+    }
+  ],
+  "dependencies": {
+    "runtime": ["@modelcontextprotocol/sdk", "express", "zod"],
+    "dev": ["typescript", "@types/node", "@types/express"]
+  },
+  "deployment": {
+    "local": "npm start",
+    "azure": "azd up",
+    "container": "docker build . && docker run"
+  },
+  "integrations": {
+    "copilot-studio": {
+      "endpoint": "/mcp",
+      "transport": "http",
+      "authentication": "none"
+    }
+  },
+  "best-practices": [
+    "Use Zod schemas for all tool parameters",
+    "Include proper error handling with user-friendly messages", 
+    "Provide clear tool descriptions for Copilot Studio",
+    "Mark demo/mock data appropriately",
+    "Test changes with both local and Azure deployment",
+    "Maintain TypeScript strict type checking",
+    "Follow existing code patterns and structure"
+  ]
+}

@@ -364,6 +364,36 @@ There are some known issues and planned improvements for MCP in Microsoft Copilo
 
 Hopefully you liked the lab. Please take the time to fill in our [feedback form](https://aka.ms/mcsmcp/lab/feedback) to tell us how we can improve!
 
+## 🤖 GitHub Copilot Coding Agent Integration
+
+This repository is configured to work effectively with GitHub Copilot coding agents. The setup includes:
+
+### Agent Instructions
+- Comprehensive project context in `.github/copilot-instructions.md`
+- Code style guidelines and development patterns
+- MCP-specific development guidance
+- Azure deployment considerations
+
+### Repository Configuration
+- Issue templates for better bug reports and feature requests
+- Pull request templates with Copilot-friendly checklists
+- Automated code review workflows
+- Contributing guidelines for agent-assisted development
+
+### Best Practices for Agents
+When working with this codebase, GitHub Copilot agents should:
+- Follow the TypeScript patterns established in `src/server.ts`
+- Use Zod schemas for all MCP tool parameters
+- Include proper error handling with user-friendly messages
+- Mark demo/mock data appropriately for production clarity
+- Test changes with both local and Azure deployment scenarios
+
+### Development Guidelines
+- All MCP tools should include clear descriptions for Copilot Studio integration
+- Maintain compatibility with existing Copilot Studio agents
+- Update documentation when adding new tools or features
+- Consider security implications when handling external commands or APIs
+
 ## 🚀 Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
