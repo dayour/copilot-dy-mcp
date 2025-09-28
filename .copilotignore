@@ -14,7 +14,6 @@ build/
 .env.production.local
 
 # IDE and editor files (but keep extensions.json for recommendations)
-.vscode/settings.json
 .vscode/launch.json
 .vscode/tasks.json
 .idea/
