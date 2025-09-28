@@ -10,8 +10,8 @@ yarn-error.log*
 dist/
 *.tsbuildinfo
 
-# VS Code
-.vscode/
+# VS Code - Keep configurations to help developers
+# .vscode/ - commented out to include helpful VS Code configs
 
 # Env & Secrets
 .env
