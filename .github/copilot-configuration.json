@@ -5,35 +5,42 @@
     "type": "mcp-server",
     "language": "typescript",
     "framework": "express",
-    "deployment": "azure-container-apps"
+    "deployment": "azure-container-apps",
+    "version": "1.0.0",
+    "repository": "https://github.com/dayour/copilot-dy-mcp"
   },
   "structure": {
     "src/": "TypeScript source code",
     "src/server.ts": "Main MCP server implementation with tool definitions",
     "infra/": "Azure deployment infrastructure (Bicep templates)", 
     "assets/": "Documentation images and resources",
-    "Dockerfile": "Container configuration for Azure deployment"
+    "Dockerfile": "Container configuration for Azure deployment",
+    ".github/": "GitHub configuration including Copilot instructions and templates"
   },
   "tools": [
     {
       "name": "execute-powershell-command",
       "description": "Execute PowerShell commands for system administration",
-      "parameters": ["command", "timeoutMs"]
+      "parameters": ["command", "timeoutMs"],
+      "security": "high-risk"
     },
     {
       "name": "make-api-request", 
       "description": "Make HTTP requests to REST APIs",
-      "parameters": ["url", "method", "headers", "body", "timeoutMs"]
+      "parameters": ["url", "method", "headers", "body", "timeoutMs"],
+      "security": "medium-risk"
     },
     {
       "name": "get-azure-resource-info",
       "description": "Get information about Azure resources",
-      "parameters": ["resourceType", "resourceName", "subscriptionId"]
+      "parameters": ["resourceType", "resourceName", "subscriptionId"],
+      "security": "low-risk"
     },
     {
       "name": "get-system-info",
       "description": "Get system performance and monitoring information",
-      "parameters": ["infoType"]
+      "parameters": ["infoType"],
+      "security": "low-risk"
     }
   ],
   "dependencies": {
@@ -43,14 +50,25 @@
   "deployment": {
     "local": "npm start",
     "azure": "azd up",
-    "container": "docker build . && docker run"
+    "container": "docker build . && docker run",
+    "build": "npm run build"
   },
   "integrations": {
     "copilot-studio": {
       "endpoint": "/mcp",
       "transport": "http",
       "authentication": "none"
+    },
+    "github-copilot": {
+      "instructions": ".github/copilot-instructions.md",
+      "templates": ".github/ISSUE_TEMPLATE/",
+      "workflows": ".github/workflows/"
     }
+  },
+  "testing": {
+    "local": "Manual testing with MCP client",
+    "integration": "Test with Copilot Studio after deployment",
+    "security": "Validate input sanitization and error handling"
   },
   "best-practices": [
     "Use Zod schemas for all tool parameters",
@@ -59,6 +77,8 @@
     "Mark demo/mock data appropriately",
     "Test changes with both local and Azure deployment",
     "Maintain TypeScript strict type checking",
-    "Follow existing code patterns and structure"
+    "Follow existing code patterns and structure",
+    "Implement comprehensive security validation",
+    "Use structured logging for debugging"
   ]
 }

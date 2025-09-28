@@ -1,0 +1,28 @@
+# CODEOWNERS file for Microsoft Copilot Studio MCP Server
+# This file defines code ownership and review requirements
+
+# Global owners for all files
+* @dayour
+
+# Core MCP server implementation
+/src/server.ts @dayour
+
+# Azure infrastructure and deployment
+/infra/ @dayour
+/azure.yaml @dayour
+/Dockerfile @dayour
+
+# GitHub configuration and Copilot instructions
+/.github/ @dayour
+/.github/copilot-instructions.md @dayour
+/.github/copilot-configuration.json @dayour
+
+# Documentation
+/README.md @dayour
+/docs/ @dayour
+/assets/ @dayour
+
+# Package and dependency management
+/package.json @dayour
+/package-lock.json @dayour
+/tsconfig.json @dayour

@@ -1,0 +1,37 @@
+# Dependencies and build artifacts
+node_modules/
+dist/
+build/
+*.tsbuildinfo
+
+# Logs and temporary files
+*.log
+.DS_Store
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE and editor files (but keep extensions.json for recommendations)
+.vscode/launch.json
+.vscode/tasks.json
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+Thumbs.db
+.directory
+
+# Package manager files
+package-lock.json
+yarn.lock
+
+# Azure and deployment files that contain sensitive info
+azure.yaml
+.azure/
+
+# GitHub Actions logs and cache
+.github/workflows/*.log
