@@ -1,6 +1,31 @@
 # Microsoft Copilot Studio ❤️ MCP
 
-Welcome to the **Microsoft Copilot Studio ❤️ MCP** lab. In this lab, you will learn how to deploy an MCP Server, and how to add it to Microsoft Copilot Studio.
+Welcome to the **Microsoft Copilot Studio ❤️ MCP** lab. In this lab, you will learn how to deploy an MCP Server with practical business tools, and how to add it to Microsoft Copilot Studio.
+
+## 🛠️ Business Tools Included
+
+This MCP server provides several practical business tools:
+
+### 1. 🔧 PowerShell Execution
+- Execute PowerShell commands and scripts
+- Get system processes, services, and status information
+- Perfect for system administration and automation tasks
+
+### 2. 🌐 REST API Client
+- Make HTTP requests to any REST API endpoint
+- Support for GET, POST, PUT, DELETE, and PATCH methods
+- Custom headers and request bodies
+- Ideal for integrating with third-party APIs
+
+### 3. ☁️ Azure Resource Information
+- Query Azure resource details (VMs, Storage, Web Apps, Databases, etc.)
+- Get resource status and configuration information
+- Helpful for cloud infrastructure management
+
+### 4. 📊 System Information
+- Retrieve environment details and system specifications
+- Monitor disk space, network, and performance metrics
+- Essential for system monitoring and troubleshooting
 
 ## ❓ What is MCP?
 
@@ -119,16 +144,16 @@ You should again see the following error:
 {"jsonrpc":"2.0","error":{"code":-32000,"message":"Method not allowed."},"id":null}
 ```
 
-## 👨‍💻 Use the Jokes MCP Server in Visual Studio Code / GitHub Copilot
+## 👨‍💻 Use the Business Tools MCP Server in Visual Studio Code / GitHub Copilot
 
-To use the Jokes MCP Server, you need to use the URL of your server (can be either your devtunnel URL or your deployed Azure Container App) with the `/mcp` part at the end and add it as an MCP Server in Visual Studio Code.
+To use the Business Tools MCP Server, you need to use the URL of your server (can be either your devtunnel URL or your deployed Azure Container App) with the `/mcp` part at the end and add it as an MCP Server in Visual Studio Code.
 
 1. Press either `ctrl` + `shift` + `P` (Windows/Linux) or `cmd` + `shift` + `P` (Mac) and type `MCP`
 1. Select `MCP: Add Server...`
 1. Select `HTTP (HTTP or Server-Sent Events)`
 1. Paste the URL of your server in the input box (make sure `/mcp` in the end is included)
 1. Press `Enter`
-1. Enter a name for the server, for instance `JokesMCP`
+1. Enter a name for the server, for instance `BusinessToolsMCP`
 1. Select `User Settings` to save the MCP Server settings in your user settings
 
     This will add an MCP Server to your `settings.json` file. It should look like this:
@@ -136,23 +161,21 @@ To use the Jokes MCP Server, you need to use the URL of your server (can be eith
 
 1. Open `GitHub Copilot`
 1. Switch from `Ask` to `Agent`
-1. Make sure the `JokesMCP` server actions are selected when you select the tools icon:
+1. Make sure the `BusinessToolsMCP` server actions are selected when you select the tools icon:
 
     ![Tools menu in GitHub Copilot](./assets/tools-menu.png)
 
 1. Ask the following question:
 
     ```text
-    Get a chuck norris joke from the Dev category
+    Execute PowerShell command 'Get-Process' to show running processes
     ```
 
-This should give you a response like this:
+This should give you a response showing the list of running processes.
 
-![Screenshot of question to provide a joke from the dev category and the answer from GitHub Copilot](./assets/github-copilot-get-joke.png)
+Now you have added the `BusinessToolsMCP` server to Visual Studio Code!
 
-Now you have added the `JokesMCP` server to Visual Studio Code!
-
-## 👨‍💻 Use the Jokes MCP Server in Microsoft Copilot Studio
+## 👨‍💻 Use the Business Tools MCP Server in Microsoft Copilot Studio
 
 **Import the Connector**
 
@@ -165,7 +188,7 @@ Now you have added the `JokesMCP` server to Visual Studio Code!
 
     ![View of the import from GitHub section](./assets/import-from-github.png)
 
-1. Change the **Connector Name** to something appropriate, like for instance `Jokes MCP` 
+1. Change the **Connector Name** to something appropriate, like for instance `Business Tools MCP` 
 1. Change the **Description** to something appropriate
 1. Paste your root URL (for instance `something-3000.something.devtunnels.ms` or `something.azurecontainerapps.io`) in the **Host** field
 1. Select **Create connector** 
@@ -190,27 +213,30 @@ Now you have added the `JokesMCP` server to Visual Studio Code!
 
     ![Configure](./assets/configure.png)
 
-1. Change the name to `Jokester`
+1. Change the name to `Business Assistant`
 1. Add the following `Description`
 
     ```text
-    A humor-focused agent that delivers concise, engaging jokes only upon user request, adapting its style to match the user's tone and preferences. It remains in character, avoids repetition, and filters out offensive content to ensure a consistently appropriate and witty experience.
+    A professional assistant that helps with business tasks including PowerShell automation, API interactions, Azure resource management, and system monitoring. Provides clear, actionable responses for enterprise and IT administration needs.
     ```
 
 1. Add the following `Instructions`
 
     ```text
-    You are a joke-telling assistant. Your sole purpose is to deliver appropriate, clever, and engaging jokes upon request. Follow these rules:
+    You are a business tools assistant. Your purpose is to help users with:
     
-    * Respond only when the user asks for a joke or something related (e.g., "Tell me something funny").
-    * Match the tone and humor preference of the user based on their input—clean, dark, dry, pun-based, dad jokes, etc.
-    * Never break character or provide information unrelated to humor.
-    * Keep jokes concise and clearly formatted.
-    * Avoid offensive, discriminatory, or NSFW content.
-    * When unsure about humor preference, default to a clever and universally appropriate joke.
-    * Do not repeat jokes within the same session.
-    * Avoid explaining the joke unless explicitly asked.
-    * Be responsive, witty, and quick.
+    * PowerShell command execution and system administration
+    * REST API interactions and integrations
+    * Azure resource information and management
+    * System monitoring and information gathering
+    
+    Follow these guidelines:
+    * Provide clear, professional responses
+    * Explain technical concepts when necessary
+    * Always suggest safe practices for system administration
+    * Format technical output clearly and readably
+    * Ask for clarification when commands or requests are ambiguous
+    * Include relevant warnings for potentially destructive operations
     ```
 
 1. Select `Continue` on the top right
@@ -235,7 +261,7 @@ Now you have added the `JokesMCP` server to Visual Studio Code!
 
 1. Select the `Model Context Protocol` tab to filter all the Model Context Protocol Servers (see number 1 in the screenshot below)
 
-1. Select the `Jokes MCP` server (see number 2 in the screenshot below)
+1. Select the `Business Tools MCP` server (see number 2 in the screenshot below)
 
     ![MCP](./assets/mcpsteps.png)
 
@@ -258,7 +284,7 @@ Now you have added the `JokesMCP` server to Visual Studio Code!
 1. In the `Test your agent` pane send the following message:
 
     ```text
-    Can I get a Chuck Norris joke?
+    Execute PowerShell command 'Get-Date' to show current date and time
     ```
   
     This will show you message that additional permissions are required to run this action. This is because of the user authentication in the action wizard.
@@ -269,9 +295,9 @@ Now you have added the `JokesMCP` server to Visual Studio Code!
   
     This will open a new window where you can manage your connections for this agent.
 
-1. Select `Connect` next to the `JokesMCP`
+1. Select `Connect` next to the `BusinessToolsMCP`
 
-    ![Connect to JokesMCP](./assets/connect.png)
+    ![Connect to BusinessToolsMCP](./assets/connect.png)
 
 1. Wait until the connection is created and select `Submit`
 
@@ -283,7 +309,7 @@ Now you have added the `JokesMCP` server to Visual Studio Code!
 
 1. Close the manage your connections tab in your browser
 
-    Now you should be back in the Jokester agent screen.
+    Now you should be back in the Business Assistant agent screen.
 
 1. Select the `refresh icon` in the `Test your agent` pane
 
@@ -291,25 +317,33 @@ Now you have added the `JokesMCP` server to Visual Studio Code!
 
 1. In the `Test your agent` pane send the following message:
 
-    ```text
-    Can I get a Chuck Norris joke?
-    ```
-
-    This will now show a Chuck Norris joke - instead of the additional permissions. If that's not the case - you probably have missed the [prerequisite](#️-prerequisites) that the environment needs to have the `get new features early` toggle on.
-
-    ![Chuck Norris joke](./assets/chucknorrisjoke.png)
-
 1. In the `Test your agent` pane send the following message:
 
     ```text
-    Can I get a Dad joke?
+    Execute PowerShell command 'Get-Date' to show current date and time
     ```
 
-    This will now show a Dad joke.
+    This will now show the current date and time - instead of the additional permissions. If that's not the case - you probably have missed the [prerequisite](#️-prerequisites) that the environment needs to have the `get new features early` toggle on.
 
-    ![Dad joke](./assets/dadjoke.png)
+1. Try other business tools by sending messages like:
 
-And that was the Jokes MCP Server working in Microsoft Copilot Studio.
+    ```text
+    Get Azure resource information for a virtual machine
+    ```
+
+    or
+
+    ```text
+    Make an API request to GET https://api.github.com/users/octocat
+    ```
+
+    or
+
+    ```text
+    Get system performance information
+    ```
+
+And that was the Business Tools MCP Server working in Microsoft Copilot Studio.
 
 ## ❌ Remove the Azure resources
 

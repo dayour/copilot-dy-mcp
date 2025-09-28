@@ -9,7 +9,7 @@ param environmentName string
 @description('Primary location for all resources')
 param location string
 
-param jokesmcpHttpTypescriptExists bool
+param businesstoolsHttpTypescriptExists bool
 
 @description('Id of the user or app to assign application roles')
 param principalId string
@@ -37,8 +37,8 @@ module resources 'resources.bicep' = {
     location: location
     tags: tags
     principalId: principalId
-    jokesmcpHttpTypescriptExists: jokesmcpHttpTypescriptExists
+    businesstoolsHttpTypescriptExists: businesstoolsHttpTypescriptExists
   }
 }
 output AZURE_CONTAINER_REGISTRY_ENDPOINT string = resources.outputs.AZURE_CONTAINER_REGISTRY_ENDPOINT
-output AZURE_RESOURCE_JOKESMCP_HTTP_TYPESCRIPT_ID string = resources.outputs.AZURE_RESOURCE_JOKESMCP_HTTP_TYPESCRIPT_ID
+output AZURE_RESOURCE_BUSINESSTOOLS_HTTP_TYPESCRIPT_ID string = resources.outputs.AZURE_RESOURCE_BUSINESSTOOLS_HTTP_TYPESCRIPT_ID
