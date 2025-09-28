@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microsoft Copilot Studio ❤️ MCP | Business Tools Lab</title>
+    <meta name="description" content="Learn how to deploy an MCP Server with practical business tools and integrate it with Microsoft Copilot Studio">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="cyber-grid"></div>
+    <div class="particles" id="particles"></div>
+    
+    <!-- Navigation -->
+    <nav class="nav-container">
+        <div class="nav-brand">
+            <span class="brand-text">MCP Lab</span>
+            <div class="brand-pulse"></div>
+        </div>
+        <div class="nav-links">
+            <a href="#features" class="nav-link">Features</a>
+            <a href="#tools" class="nav-link">Tools</a>
+            <a href="#getting-started" class="nav-link">Get Started</a>
+            <a href="https://github.com/dayour/copilot-dy-mcp" class="nav-link github-link" target="_blank">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+                GitHub
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-text">Microsoft Copilot Studio</span>
+                <div class="badge-glow"></div>
+            </div>
+            <h1 class="hero-title">
+                <span class="title-line">Business Tools</span>
+                <span class="title-line accent">MCP Server</span>
+                <span class="title-line">Laboratory</span>
+            </h1>
+            <p class="hero-description">
+                Deploy powerful business tools through Model Context Protocol (MCP) and seamlessly integrate them with Microsoft Copilot Studio for enhanced AI-powered workflows.
+            </p>
+            <div class="hero-actions">
+                <a href="#getting-started" class="btn btn-primary">
+                    <span>Get Started</span>
+                    <div class="btn-glow"></div>
+                </a>
+                <a href="https://github.com/dayour/copilot-dy-mcp" class="btn btn-secondary" target="_blank">
+                    <span>View on GitHub</span>
+                </a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="code-window">
+                <div class="window-header">
+                    <div class="window-controls">
+                        <span class="control close"></span>
+                        <span class="control minimize"></span>
+                        <span class="control maximize"></span>
+                    </div>
+                    <span class="window-title">mcp-server.ts</span>
+                </div>
+                <div class="code-content">
+                    <div class="code-line">
+                        <span class="line-number">1</span>
+                        <span class="code-text"><span class="keyword">import</span> { <span class="class">McpServer</span> } <span class="keyword">from</span> <span class="string">"@modelcontextprotocol/sdk"</span>;</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">2</span>
+                        <span class="code-text"><span class="keyword">import</span> { <span class="class">PowerShellTool</span> } <span class="keyword">from</span> <span class="string">"./tools"</span>;</span>
+                    </div>
+                    <div class="code-line active">
+                        <span class="line-number">3</span>
+                        <span class="code-text"><span class="keyword">const</span> <span class="variable">server</span> = <span class="keyword">new</span> <span class="class">McpServer</span>();</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">4</span>
+                        <span class="code-text"><span class="comment">// Business tools ready for deployment</span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">What is MCP?</h2>
+                <p class="section-description">
+                    Model Context Protocol (MCP) is an open protocol that standardizes how applications provide context to LLMs, enabling seamless integration of AI models with various data sources and tools.
+                </p>
+            </div>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                        </svg>
+                    </div>
+                    <h3>Lightning Fast</h3>
+                    <p>Real-time data access and processing with minimal latency for AI-powered agents.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                            <circle cx="12" cy="16" r="1"/>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                        </svg>
+                    </div>
+                    <h3>Enterprise Security</h3>
+                    <p>Built-in governance controls including VNet integration and Data Loss Prevention.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L15.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 2Z"/>
+                        </svg>
+                    </div>
+                    <h3>Better Together</h3>
+                    <p>MCP and connectors complement each other for enhanced AI integration capabilities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Tools Section -->
+    <section id="tools" class="tools">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Business Tools Included</h2>
+                <p class="section-description">
+                    This MCP server provides four powerful business tools ready for deployment
+                </p>
+            </div>
+
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <div class="tool-icon powershell">
+                            <span class="tool-emoji">🔧</span>
+                        </div>
+                        <div class="tool-info">
+                            <h3>PowerShell Execution</h3>
+                            <span class="tool-status">Active</span>
+                        </div>
+                    </div>
+                    <p>Execute PowerShell commands and scripts, get system processes, services, and status information. Perfect for system administration and automation tasks.</p>
+                    <div class="tool-features">
+                        <span class="feature-tag">Commands</span>
+                        <span class="feature-tag">Scripts</span>
+                        <span class="feature-tag">System Info</span>
+                    </div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <div class="tool-icon api">
+                            <span class="tool-emoji">🌐</span>
+                        </div>
+                        <div class="tool-info">
+                            <h3>REST API Client</h3>
+                            <span class="tool-status">Active</span>
+                        </div>
+                    </div>
+                    <p>Make HTTP requests to any REST API endpoint with support for all major methods, custom headers, and request bodies. Ideal for third-party integrations.</p>
+                    <div class="tool-features">
+                        <span class="feature-tag">GET/POST</span>
+                        <span class="feature-tag">Headers</span>
+                        <span class="feature-tag">JSON</span>
+                    </div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <div class="tool-icon azure">
+                            <span class="tool-emoji">☁️</span>
+                        </div>
+                        <div class="tool-info">
+                            <h3>Azure Resources</h3>
+                            <span class="tool-status">Active</span>
+                        </div>
+                    </div>
+                    <p>Query Azure resource details including VMs, Storage, Web Apps, and Databases. Get resource status and configuration for cloud infrastructure management.</p>
+                    <div class="tool-features">
+                        <span class="feature-tag">VMs</span>
+                        <span class="feature-tag">Storage</span>
+                        <span class="feature-tag">Web Apps</span>
+                    </div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <div class="tool-icon system">
+                            <span class="tool-emoji">📊</span>
+                        </div>
+                        <div class="tool-info">
+                            <h3>System Information</h3>
+                            <span class="tool-status">Active</span>
+                        </div>
+                    </div>
+                    <p>Retrieve environment details and system specifications, monitor disk space, network, and performance metrics for comprehensive system monitoring.</p>
+                    <div class="tool-features">
+                        <span class="feature-tag">Environment</span>
+                        <span class="feature-tag">Performance</span>
+                        <span class="feature-tag">Monitoring</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Getting Started Section -->
+    <section id="getting-started" class="getting-started">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Getting Started</h2>
+                <p class="section-description">
+                    Choose your deployment path and get your MCP server running in minutes
+                </p>
+            </div>
+
+            <div class="deployment-options">
+                <div class="option-card local">
+                    <div class="option-header">
+                        <div class="option-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                                <line x1="8" y1="21" x2="16" y2="21"/>
+                                <line x1="12" y1="17" x2="12" y2="21"/>
+                            </svg>
+                        </div>
+                        <h3>Run Locally</h3>
+                        <span class="option-badge">Quick Setup</span>
+                    </div>
+                    <div class="steps">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            <span>Clone the repository</span>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            <span>Install dependencies</span>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            <span>Run npm start</span>
+                        </div>
+                    </div>
+                    <div class="code-snippet">
+                        <code>git clone https://github.com/dayour/copilot-dy-mcp.git<br>npm install && npm start</code>
+                    </div>
+                </div>
+
+                <div class="option-card azure">
+                    <div class="option-header">
+                        <div class="option-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
+                            </svg>
+                        </div>
+                        <h3>Deploy to Azure</h3>
+                        <span class="option-badge">Production Ready</span>
+                    </div>
+                    <div class="steps">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            <span>Install Azure Developer CLI</span>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            <span>Run azd up</span>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            <span>Configure in Copilot Studio</span>
+                        </div>
+                    </div>
+                    <div class="code-snippet">
+                        <code>azd auth login<br>azd up</code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="prerequisites">
+                <h3>Prerequisites</h3>
+                <div class="prereq-grid">
+                    <div class="prereq-item">
+                        <span class="prereq-icon">💻</span>
+                        <span>Visual Studio Code</span>
+                    </div>
+                    <div class="prereq-item">
+                        <span class="prereq-icon">⚙️</span>
+                        <span>Node.js v22</span>
+                    </div>
+                    <div class="prereq-item">
+                        <span class="prereq-icon">🔧</span>
+                        <span>Git</span>
+                    </div>
+                    <div class="prereq-item">
+                        <span class="prereq-icon">☁️</span>
+                        <span>Azure CLI</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="brand-text">MCP Lab</span>
+                    <p>Microsoft Copilot Studio ❤️ MCP</p>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>Resources</h4>
+                        <a href="https://modelcontextprotocol.io/introduction" target="_blank">MCP Documentation</a>
+                        <a href="https://aka.ms/mcsmcp" target="_blank">Copilot Studio MCP</a>
+                        <a href="https://github.com/dayour/copilot-dy-mcp" target="_blank">GitHub Repository</a>
+                    </div>
+                    <div class="link-group">
+                        <h4>Community</h4>
+                        <a href="https://github.com/dayour/copilot-dy-mcp/issues" target="_blank">Issues</a>
+                        <a href="https://github.com/dayour/copilot-dy-mcp/blob/main/CONTRIBUTING.md" target="_blank">Contributing</a>
+                        <a href="https://opensource.microsoft.com/codeofconduct/" target="_blank">Code of Conduct</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Microsoft Corporation. All rights reserved.</p>
+                <div class="footer-badges">
+                    <span class="badge">Open Source</span>
+                    <span class="badge">MIT License</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

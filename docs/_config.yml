@@ -1,0 +1,35 @@
+# GitHub Pages Configuration for MCP Laboratory
+title: Microsoft Copilot Studio ❤️ MCP
+description: Deploy powerful business tools through Model Context Protocol (MCP) and seamlessly integrate them with Microsoft Copilot Studio
+author: Microsoft Corporation
+url: https://dayour.github.io
+baseurl: /copilot-dy-mcp
+
+# Theme
+theme: null
+
+# Plugins
+plugins:
+  - jekyll-relative-links
+
+# Markdown processing
+markdown: kramdown
+highlighter: rouge
+
+# Include/Exclude files
+include:
+  - _config.yml
+  - README.md
+
+exclude:
+  - .gitignore
+  - .git/
+
+# Relative links settings
+relative_links:
+  enabled: true
+  collections: true
+
+# Custom variables
+cyber_theme: true
+mcp_version: "1.0.0"
