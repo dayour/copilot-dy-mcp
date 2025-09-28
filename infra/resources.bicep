@@ -5,7 +5,7 @@ param location string = resourceGroup().location
 param tags object = {}
 
 
-param jokesmcpHttpTypescriptExists bool
+param businesstoolsHttpTypescriptExists bool
 
 @description('Id of the user or app to assign application roles')
 param principalId string
@@ -34,7 +34,7 @@ module containerRegistry 'br/public:avm/res/container-registry/registry:0.1.1' =
     publicNetworkAccess: 'Enabled'
     roleAssignments:[
       {
-        principalId: jokesmcpHttpTypescriptIdentity.outputs.principalId
+        principalId: businesstoolsHttpTypescriptIdentity.outputs.principalId
         principalType: 'ServicePrincipal'
         roleDefinitionIdOrName: subscriptionResourceId('Microsoft.Authorization/roleDefinitions', '7f951dda-4ed3-4680-a7ca-43fe172d538d')
       }
@@ -53,25 +53,25 @@ module containerAppsEnvironment 'br/public:avm/res/app/managed-environment:0.4.5
   }
 }
 
-module jokesmcpHttpTypescriptIdentity 'br/public:avm/res/managed-identity/user-assigned-identity:0.2.1' = {
-  name: 'jokesmcpHttpTypescriptidentity'
+module businesstoolsHttpTypescriptIdentity 'br/public:avm/res/managed-identity/user-assigned-identity:0.2.1' = {
+  name: 'businesstoolsHttpTypescriptidentity'
   params: {
-    name: '${abbrs.managedIdentityUserAssignedIdentities}jokesmcpHttpTypescript-${resourceToken}'
+    name: '${abbrs.managedIdentityUserAssignedIdentities}businesstoolsHttpTypescript-${resourceToken}'
     location: location
   }
 }
-module jokesmcpHttpTypescriptFetchLatestImage './modules/fetch-container-image.bicep' = {
-  name: 'jokesmcpHttpTypescript-fetch-image'
+module businesstoolsHttpTypescriptFetchLatestImage './modules/fetch-container-image.bicep' = {
+  name: 'businesstoolsHttpTypescript-fetch-image'
   params: {
-    exists: jokesmcpHttpTypescriptExists
-    name: 'jokesmcp-http-typescript'
+    exists: businesstoolsHttpTypescriptExists
+    name: 'businesstools-http-typescript'
   }
 }
 
-module jokesmcpHttpTypescript 'br/public:avm/res/app/container-app:0.8.0' = {
-  name: 'jokesmcpHttpTypescript'
+module businesstoolsHttpTypescript 'br/public:avm/res/app/container-app:0.8.0' = {
+  name: 'businesstoolsHttpTypescript'
   params: {
-    name: 'jokesmcp-http-typescript'
+    name: 'businesstools-http-typescript'
     ingressTargetPort: 3000
     scaleMinReplicas: 1
     scaleMaxReplicas: 10
@@ -81,7 +81,7 @@ module jokesmcpHttpTypescript 'br/public:avm/res/app/container-app:0.8.0' = {
     }
     containers: [
       {
-        image: jokesmcpHttpTypescriptFetchLatestImage.outputs.?containers[?0].?image ?? 'mcr.microsoft.com/azuredocs/containerapps-helloworld:latest'
+        image: businesstoolsHttpTypescriptFetchLatestImage.outputs.?containers[?0].?image ?? 'mcr.microsoft.com/azuredocs/containerapps-helloworld:latest'
         name: 'main'
         resources: {
           cpu: json('0.5')
@@ -94,7 +94,7 @@ module jokesmcpHttpTypescript 'br/public:avm/res/app/container-app:0.8.0' = {
           }
           {
             name: 'AZURE_CLIENT_ID'
-            value: jokesmcpHttpTypescriptIdentity.outputs.clientId
+            value: businesstoolsHttpTypescriptIdentity.outputs.clientId
           }
           {
             name: 'PORT'
@@ -105,18 +105,18 @@ module jokesmcpHttpTypescript 'br/public:avm/res/app/container-app:0.8.0' = {
     ]
     managedIdentities:{
       systemAssigned: false
-      userAssignedResourceIds: [jokesmcpHttpTypescriptIdentity.outputs.resourceId]
+      userAssignedResourceIds: [businesstoolsHttpTypescriptIdentity.outputs.resourceId]
     }
     registries:[
       {
         server: containerRegistry.outputs.loginServer
-        identity: jokesmcpHttpTypescriptIdentity.outputs.resourceId
+        identity: businesstoolsHttpTypescriptIdentity.outputs.resourceId
       }
     ]
     environmentResourceId: containerAppsEnvironment.outputs.resourceId
     location: location
-    tags: union(tags, { 'azd-service-name': 'jokesmcp-http-typescript' })
+    tags: union(tags, { 'azd-service-name': 'businesstools-http-typescript' })
   }
 }
 output AZURE_CONTAINER_REGISTRY_ENDPOINT string = containerRegistry.outputs.loginServer
-output AZURE_RESOURCE_JOKESMCP_HTTP_TYPESCRIPT_ID string = jokesmcpHttpTypescript.outputs.resourceId
+output AZURE_RESOURCE_JOKESMCP_HTTP_TYPESCRIPT_ID string = businesstoolsHttpTypescript.outputs.resourceId
