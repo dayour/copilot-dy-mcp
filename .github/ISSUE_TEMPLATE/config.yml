@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Microsoft Copilot Studio Documentation
+    url: https://docs.microsoft.com/en-us/power-virtual-agents/
+    about: Official documentation for Microsoft Copilot Studio
+  - name: MCP Protocol Documentation
+    url: https://modelcontextprotocol.io/
+    about: Learn more about the Model Context Protocol
+  - name: Azure Container Apps Documentation
+    url: https://docs.microsoft.com/en-us/azure/container-apps/
+    about: Documentation for Azure Container Apps deployment
